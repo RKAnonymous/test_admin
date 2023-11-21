@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apartments</title>
+</head>
+<body>
+<table style="border-spacing: 10px 5px;">
+    <thead>
+        <tr>
+            <td>No.</td>
+            <td>Object</td>
+            <td>Floor</td>
+            <td>Area</td>
+            <td>Date</td>
+            <td>Status</td>
+            <td>Price</td>
+            <td>Customer</td>
+            <td>State</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for apartment in apartments %}
+    <tr>
+        <td>{{apartment.id}}</td>
+        <td>{{apartment.building}}</td>
+        <td>{{apartment.floor}}</td>
+        <td>{{apartment.area}}</td>
+        <td>{{apartment.created_at}}</td>
+        <td>{{apartment.status}}</td>
+        <td>{{apartment.price}}</td>
+        <td>{{apartment.customer.customer.first_name}}</td>
+        {% if apartment.state != None %}
+            <td>{{apartment.state}}</td>
+        {% else %}
+            <td>-</td>
+        {% endif %}
+        <td>
+            <a href="{% url 'update' apartment.id %}" type="button" >Edit</a>
+            <a href="{% url 'delete' apartment.id %}" type="button" >Delete</a>
+            <a href="#" type="button" >History</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<button><a href="{% url 'create' %}">Create</a></button>
+</body>
+</html>

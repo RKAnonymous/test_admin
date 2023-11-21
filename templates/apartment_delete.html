@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apartment Delete</title>
+</head>
+<body>
+
+<form method="post" action="{% url 'delete' object.id %}">{% csrf_token %}
+<p>Are you sure you want to delete this object?</p>
+<p>{{apartment.building}}</p>
+<p>{{apartment.floor}}</p>
+<p>{{apartment.area}}</p>
+<p>{{apartment.created_at}}</p>
+<p>{{apartment.status}}</p>
+<p>{{apartment.price}}</p>
+    <a href="{% url 'list' %}">Cancel</a> <input type="submit" value="Confirm">
+</form>
+
+</body>
+</html>

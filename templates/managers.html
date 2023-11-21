@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Managers</title>
+</head>
+<body>
+<table style="border-spacing: 15px 5px;">
+    <thead>
+        <tr>
+            <td>No.</td>
+            <td>Full name</td>
+            <td>Phone number</td>
+            <td>Email</td>
+            <td>Date joined</td>
+            <td>Number of contracts</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for manager in object_list %}
+    <tr>
+        <td>{{manager.id}}</td>
+        <td>{{manager.first_name}} {{manager.last_name}}</td>
+        <td>{{manager.phone}}</td>
+        <td>{{manager.email}}</td>
+        <td>{{manager.date_joined}}</td>
+        <td>{{manager.contracts}}</td>
+        <td>
+            <a href="{% url 'manager_update' manager.id %}" type="button" >Edit</a>
+            <a href="{% url 'manager_delete' manager.id %}" type="button" >Delete</a>
+            <a href="#" type="button" >History</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<button><a href="{% url 'manager_add' %}">Create</a></button>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

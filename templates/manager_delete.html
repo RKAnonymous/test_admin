@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager Delete</title>
+</head>
+<body>
+
+<form method="post" action="{% url 'manager_delete' manager.id %}">{% csrf_token %}
+<p>Are you sure you want to delete this manager?</p>
+<h4>Email</h4>
+<p>{{manager.email}}</p>
+<h4>Number of contracts</h4>
+<p>{{manager.contracts}}</p>
+
+    <a href="{% url 'managers_list' %}">Cancel</a> <input type="submit" value="Confirm">
+</form>
+
+</body>
+</html>
